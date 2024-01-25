@@ -14,7 +14,7 @@ const FileUpload = (): React.JSX.Element => {
 	const router = useRouter();
 	// TODO: Create type for below
 	const [uploading, setUploading] = useState<boolean>(false);
-	const { mutate, isLoading } = useMutation({
+	const { mutate, isPending } = useMutation({
 		mutationFn: async ({
 			file_key,
 			file_name,
@@ -81,7 +81,7 @@ const FileUpload = (): React.JSX.Element => {
 				})}
 			>
 				<input {...getInputProps()} />
-				{uploading || isLoading ? (
+				{uploading || isPending ? (
 					<>
 						<Loader2 className='h-10 w-10 text-purple-500 animate-spin' />
 						<p className='mt-2 text-sm text-slate-400'>

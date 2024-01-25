@@ -1,0 +1,30 @@
+name: Node.js CI
+
+# https://medium.com/@jjzcru/building-a-ci-cd-pipeline-with-vercel-and-github-actions-f80d3a4a7de3
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [14.15.x]
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+
+            - name: Run CI command
+              run: npm ci --legacy-peer-deps
+
+            - name: Build
+              run: npm run build
