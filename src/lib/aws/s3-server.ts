@@ -15,7 +15,7 @@ export const downloadFromS3 = async (file_key: string): Promise<string> => {
 			});
 
 			const params = {
-				Bucket: process.env.AWS_S3_NAME as string,
+				Bucket: process.env.NEXT_PUBLIC_AWS_S3_NAME as string,
 				Key: file_key,
 			};
 
