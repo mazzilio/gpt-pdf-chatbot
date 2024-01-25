@@ -1,12 +1,33 @@
 import FileUpload from '@/components/file-upload';
+import SubscriptionButton from '@/components/subscription-button';
 import { Button } from '@/components/ui/button';
+import { db } from '@/lib/db';
+import { chats } from '@/lib/db/schema';
+import { checkSubscription } from '@/lib/stripe/subscription';
 import { UserButton, auth } from '@clerk/nextjs';
-import { LogInIcon } from 'lucide-react';
+import { eq } from 'drizzle-orm';
+import { ArrowRight, ArrowRightCircleIcon, LogInIcon } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function Home() {
 	const { userId } = auth();
 	const isAuth = !!userId;
+	const isPro = await checkSubscription();
+
+	// TODO: Smelly code, refactor this and put into a utils
+	// Create folder to put all db calls and utils
+	let firstChat;
+	if (userId) {
+		firstChat = await db
+			.select()
+			.from(chats)
+			.where(eq(chats.userId, userId));
+
+		if (firstChat) {
+			firstChat = firstChat[0];
+		}
+	}
+
 	return (
 		<div className='w-screen min-h-screen bg-gradient-to-l from-indigo-300 to-purple-400'>
 			<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
@@ -19,7 +40,17 @@ export default async function Home() {
 					</div>
 
 					<div className='flex mt-5'>
-						{isAuth && <Button>Go to Chats</Button>}
+						{isAuth && firstChat && (
+							<Link href={`/chats/${firstChat.id}`}>
+								<Button>
+									Go to Chats{' '}
+									<ArrowRightCircleIcon className='ml-2' />
+								</Button>
+							</Link>
+						)}
+						<div className='ml-3'>
+							<SubscriptionButton isPro={isPro} />
+						</div>
 					</div>
 					<p className='max-w-xl mt-4 text-lg text-slate-600'>
 						Instantly understand documentation, research, and any
