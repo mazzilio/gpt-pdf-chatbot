@@ -21,7 +21,11 @@ const SubscriptionButton = ({ isPro }: SubscriptionButtonProps) => {
 		}
 	};
 	return (
-		<Button disabled={isLoading} onClick={handleSubscription}>
+		<Button
+			disabled={isLoading}
+			onClick={handleSubscription}
+			variant='ghost'
+		>
 			{isPro ? 'Manage Subscriptions' : 'Get Pro'}
 			<BadgeDollarSign className='ml-2' />
 		</Button>
