@@ -12,7 +12,7 @@ import Link from 'next/link';
 export default async function Home() {
 	const { userId } = auth();
 	const isAuth = !!userId;
-	const isPro = await checkSubscription();
+	// const isPro = await checkSubscription();
 
 	// TODO: Smelly code, refactor this and put into a utils
 	// Create folder to put all db calls and utils
@@ -48,9 +48,9 @@ export default async function Home() {
 								</Button>
 							</Link>
 						)}
-						<div className='ml-3'>
+						{/* <div className='ml-3'>
 							<SubscriptionButton isPro={isPro} />
-						</div>
+						</div> */}
 					</div>
 					<p className='max-w-xl mt-4 text-lg text-slate-600'>
 						Instantly understand documentation, research, and any

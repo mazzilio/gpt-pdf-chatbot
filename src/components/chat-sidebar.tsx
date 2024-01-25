@@ -62,10 +62,13 @@ const ChatSideBar = ({ chats, chatId, isPro }: ChatSideBarProps) => {
 			<div className='absolute bottom-4 left-4'>
 				<div className='flex items-center gap-2 text-sm text-slate-500 flex-wrap'>
 					<Link href='/'>Home</Link>
-					<Link href='/'>Source</Link>
+					<Link href='https://github.com/mazzilio/gpt-pdf-chatbot'>
+						Source
+					</Link>
+					<p>mazzilio</p>
 					{/* Stripe button here */}
 				</div>
-				<SubscriptionButton isPro={isPro} />
+				{/* <SubscriptionButton isPro={isPro} /> */}
 			</div>
 		</div>
 	);
