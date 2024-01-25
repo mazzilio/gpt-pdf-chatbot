@@ -21,7 +21,7 @@ export const uploadToS3 = async (
 				file.name.replace(/\s/g, '-');
 
 			const params = {
-				Bucket: process.env.NEXT_PUBLIC_AWS_S3_NAME as string,
+				Bucket: process.env.AWS_S3_NAME as string,
 				Key: file_key,
 				Body: file,
 			};
@@ -42,6 +42,6 @@ export const uploadToS3 = async (
 
 export const getS3Url = (file_key: string) => {
 	// TODO: Import a config file for the URLs that will be used
-	const url = `https://${process.env.NEXT_PUBLIC_AWS_S3_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${file_key}`;
+	const url = `https://${process.env.AWS_S3_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${file_key}`;
 	return url;
 };

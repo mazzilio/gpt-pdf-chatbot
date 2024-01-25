@@ -8,7 +8,7 @@ export const getMatchesFromEmbeddings = async (
 ) => {
 	try {
 		const pinecone = new Pinecone({
-			apiKey: process.env.NEXT_PUBLIC_PINECONE_API_KEY!,
+			apiKey: process.env.PINECONE_API_KEY!,
 		});
 		const pineconeIndex = await pinecone.Index('pdfbot');
 
