@@ -1,46 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center"> <img width=60% src="./public/PDFBot-Banner.png"> </p>
 
-## Getting Started
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-First, run the development server:
+## Quick Links
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<div align="center">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+• [Deployed Site](https://gpt-pdf-chatbot.vercel.app/) • [PineconeDB Tutorial](https://www.pinecone.io/learn/context-aware-chatbot-with-vercel-ai-sdk/) •
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<br />
 
-## Learn More
+# What is this chatbot for?
 
-To learn more about Next.js, take a look at the following resources:
+Current chat bots, such as GPT, either suffer from out-dated data, or they can 'hallucinate' answers irrelevant to the question and context. PDFBot is a web app designed to upload research papers, documentation, or even books to use as the context underlying any conversations with ChatGPT. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This is a proof of concept and learning opportunity on how to leverage existing libraries, packages and techniques to built an AI Bot, using Retrieval-Augmented Generation (RAG). 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 👨‍💻 Tech stack
 
-## Deploy on Vercel
+This project is a complete client-side application, with a reliance on serverless technologies rather than a dedicated server. This project has been hosted using [Vercel](https://vercel.com), as it is accessible and free to host any web apps. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<details> 
+<summary>Frontend</summary>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   This project uses the [React Library](https://react.dev/) with [Next.js](https://nextjs.org/docs) as the development environment.
+-   [Shadcn/UI](https://ui.shadcn.com/docs) for components, as it allows installation of single components without the need for dependencies.
+-   [Tailwind](https://tailwindcss.com/docs/installation) has been used to customise components and elements, with a custom colour scheme from [hypercolor](https://hypercolor.dev/) gradient generator.
+-   Edge Runtime: https://nextjs.org/docs/pages/api-reference/edge
+</details>
 
-Notes:
-Package.json has script to expand the space size to be 8GB of Ram to stop running out of heap memory
+<details> 
+<summary>Serverless</summary>
 
-# Useful Articles, Videos and Links
+-   PineconeDB: https://docs.pinecone.io/docs/overview
+-   S3 Bucket: https://aws.amazon.com/s3/
+-   Clerk Auth: https://clerk.com/docs
+-   NeonDB: https://neon.tech/docs/guides/nextjs
+-   Stripe: https://vercel.com/guides/getting-started-with-nextjs-typescript-stripe
+  
+</details>
 
-## Retrieval-Augmented Generation
-- What is RAG? https://www.youtube.com/watch?v=T-D1OfcDW1M
+# 🌟 What's next?!
+
+This is version 1.0 of this chatbat. My intention is to further build on top of this and to further refine my understanding and development for fullstack applications and generative AI. As part of this, my current goals for this project is as follows:
+
+-   Unit test
+-   Component Library
+-   Deletion of chats
+-   Manage your PDFs
+
+This is a lot to add in terms of further steps, but I would like this to be a good example of code and approaches to be used by others. :D
+
+## Useful Articles, Videos and Links
+
+#### Retrieval-Augmented Generation
+- What is RAG?: https://www.youtube.com/watch?v=T-D1OfcDW1M
+
 - https://sdk.vercel.ai/docs
-- https://www.pinecone.io/learn/context-aware-chatbot-with-vercel-ai-sdk/
+- https://www.youtube.com/watch?v=ySus5ZS0b94
+
+---
+
+### Implementation 
+- Package.json has script to expand the space size to be 8GB of Ram to stop running out of heap memory for devices that have memory issues.
+
+### Why is this not tested?
+This piece of work has not been unit tested as of now, but code coverage and unit tests will be addressed once an opportunity arises for me to focus on it. I am intending to further work on this with learnings and improvements as highlighted in the stretch goals above.
+
+---
+
+## Pathways into Tech?
+
+I was very fortunate enough to have done the [Code First Girls](https://codefirstgirls.com/courses/cfgdegree/) Bootcamp with an opportunity to interview at an amazing company. Before then, I undertook a lot of web development courses, such as the FreeCodeCamp Legacy and Updated Web Dev courses, the Full-stack Route on Codecademy, and a ton of YouTube tutorials and Medium Articles!
+
+My focus has been on project-based learning and undertaking Computer Science fundamentals. I have a ton more content on my TikTok on my own experience and journey, so feel free to connect on there!
+
+## ✍️ Contributing
+
+If you would like to contribute feedback, improvements or make your own version - this code is available for you to clone and use for your own projects and developments.
+
+## ⚠️ License
+
+My code is free and open-source under the GNU General Public License v3.0.
