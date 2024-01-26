@@ -63,7 +63,10 @@ This is a lot to add in terms of further steps, but I would like this to be a go
 
 ---
 
-### Implementation 
+## Want to run it locally?
+...
+
+### Implementation Notes
 - Package.json has script to expand the space size to be 8GB of Ram to stop running out of heap memory for devices that have memory issues.
 
 ### Why is this not tested?
