@@ -7,7 +7,7 @@ import { checkSubscription } from '@/lib/stripe/subscription';
 import { auth } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import { redirect } from 'next/navigation';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 type ChatPageProps = {
 	params: {
@@ -39,7 +39,6 @@ const ChatPage = async ({ params: { chatId } }: ChatPageProps) => {
 	}
 
 	const currentChat = _chats.find((chat) => chat?.id === parseInt(chatId));
-
 	const isPro = await checkSubscription();
 
 	return (
@@ -47,9 +46,10 @@ const ChatPage = async ({ params: { chatId } }: ChatPageProps) => {
 			<div className='flex w-full max-h-screen overflow-scroll'>
 				<div className='flex-[1] max-w-xs'>
 					<ChatSideBar
-						chats={_chats}
+						chatsList={_chats}
 						chatId={parseInt(chatId)}
-						isPro={isPro}
+						// isPro={isPro}
+						userId={userId}
 					/>
 				</div>
 				<div className='max-h-screen p-4 overflow-scroll flex-[5]'>

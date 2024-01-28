@@ -43,7 +43,7 @@ export default async function Home() {
 						{isAuth && firstChat && (
 							<Link href={`/chats/${firstChat.id}`}>
 								<Button>
-									Go to Chats{' '}
+									Go to Chats
 									<ArrowRightCircleIcon className='ml-2' />
 								</Button>
 							</Link>

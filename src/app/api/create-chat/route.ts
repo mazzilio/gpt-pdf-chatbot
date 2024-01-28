@@ -11,7 +11,10 @@ export const POST = async (req: Request, res: Response) => {
 	const { userId } = await auth();
 
 	if (!userId) {
-		return NextResponse.json({ error: 'unauthorised' }, { status: 401 });
+		return NextResponse.json(
+			{ error: 'Unauthorized user, please log in or create an account.' },
+			{ status: 401 }
+		);
 	}
 	try {
 		const body = await req.json();
@@ -32,10 +35,8 @@ export const POST = async (req: Request, res: Response) => {
 			{ status: 200 }
 		);
 	} catch (error) {
-		console.error(error);
-		console.log(error);
 		return NextResponse.json(
-			{ error: 'Internal Server Error' },
+			{ error: `Internal Server Error: ${error}` },
 			{ status: 500 }
 		);
 	}

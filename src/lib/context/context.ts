@@ -21,7 +21,7 @@ export const getMatchesFromEmbeddings = async (
 
 		return queryResult.matches || [];
 	} catch (error) {
-		console.log('error querying embeddings ', error);
+		// console.log('error querying embeddings ', error);
 		throw error;
 	}
 };

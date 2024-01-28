@@ -71,11 +71,6 @@ export const POST = async (req: Request) => {
 			temperature: 0.8,
 		});
 
-		console.log([
-			prompt,
-			...messages.filter((message: Message) => message.role === 'user'),
-		]);
-
 		const stream = OpenAIStream(response, {
 			onStart: async () => {
 				await db.insert(_messages).values({
