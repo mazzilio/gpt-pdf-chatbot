@@ -16,15 +16,13 @@ jobs:
                 node-version: [14.15.x]
 
         steps:
-            - uses: actions/checkout@v2
+            - name: Checkout code
+            - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
                   node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
-
-            - name: Run CI command
-              run: npm ci --legacy-peer-deps
-
+            - name: Install packages
+              run: npm i --legacy-peer-deps
             - name: Build
               run: npm run build
